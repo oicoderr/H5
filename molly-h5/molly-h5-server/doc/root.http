@@ -1,0 +1,8 @@
+POST https://molly-h5.happysyrup.com/api/get-sign
+Content-Type: application/json
+
+{
+  "url": "https://brand.happysyrup.com/yili/qiaolezi/index.html"
+}
+
+###

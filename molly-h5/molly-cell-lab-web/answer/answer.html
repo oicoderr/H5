@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电音手术中</title>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<script src="../global-js/adaptive.js"></script>
+	<script>
+		window['adaptive'].desinWidth = 750;
+		window['adaptive'].baseFont = 28;
+		window['adaptive'].init();
+	</script>
+	<link rel="stylesheet" href="../global-css/resetMobile.css" />
+	<link rel="stylesheet" href="css/answer.css" />
+</head>
+<body>
+	<div id="content">
+		<div id="questionNum">1</div>
+		<!-- 提示：请听该音频，选择最符合你脑海中呈现 -->
+		<div class="musicBox">
+			<audio  loop="loop" id="answer-bgm" preload="load">
+				<source src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/sound/music1.mp3" type="audio/mp3" id="music" />
+			</audio>
+			<p class="music-title">请听该音频，选择最符合你脑海中呈现</p>
+			<p class="onOff">
+				<img src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/off.png" class="pos hide" id="off">
+				<img src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/on.png" class="pos" id="on">
+			</p>
+		</div>
+
+		<!-- 选项盒子 -->
+		<div class="optionBox" index="0">
+			<ul>
+				<li index="1">
+					<input type="image" src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/no0-0.gif" class="option" alt="option">
+				</li>
+				<li index="2">
+					<input type="image" src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/no0-1.gif" class="option" alt="option">
+				</li>
+				<li index="3">
+					<input type="image" src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/no0-2.gif" class="option" alt="option">
+				</li>
+				<li index="4">
+					<input type="image" src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/no0-3.gif" class="option" alt="option">
+				</li>
+			</ul>
+			<div class="btnBox">
+				<input type="image" src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/preProblem.png" alt="pre" id="preBtn" style="display: none;">
+				<input type="image" src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/submit.png" alt="submit" id="submit" style="display: none;">
+			</div>
+		</div>
+		
+		<!-- 背景 -->
+		<img pSrc="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/answer-bg.png" class="answer-bg">	
+	</div>
+	
+	<!-- 网络中断提示 -->
+	<div id="internetBreak" class="hide">
+		<p class="breakTitleWrap">
+			<img src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/internetBreak.jpg" class="break-title">
+		</p>
+	</div>
+
+	<div class="loading">
+        <div class="xl-progress-wp">
+            <div class="xl-progress">
+                <i class="xl-progress__inner" style="width:0%;"></i>
+            </div>
+            <div class="xl-progress__txt">0%</div>
+        </div>
+    </div>
+	
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="../global-js/jquery-1.8.2.min.js"></script>
+	<script src="../global-js/config.js"></script> 
+	<script src="../global-js/preload.js"></script>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/answer.js"></script>
+</body>
+</html>

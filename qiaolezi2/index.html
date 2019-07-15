@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>巧乐兹绮炫「异」世界</title>
+	<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body style="margin: 0px;background-color: #fff;overflow-x:hidden;overflow-y:hidden">
+
+	<!-- 场景 -->
+	<canvas id="mainView"></canvas>
+
+	<!-- 主页 -->
+	<section id="index">
+		<!-- 这里需要判断设备 -->
+		<img src="https://cdn.happysyrup.com/brand/qlz2/img/SD/indexBg.jpg" alt="首页背景" title="首页背景图" id="indexBg" class="indexBg">
+		<div class="stars">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/star_0.png" alt="star" class="option_0">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/star_1.png" alt="star" class="option_1">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/star_2.png" alt="star" class="option_2">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/star_3.png" alt="star" class="option_3">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/star_4.png" alt="star" class="option_4">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/star_5.png" alt="star" class="option_5">
+		</div>
+		<a class="gotoSelectIceCream">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/openBtn.png" alt="开启巧乐兹琦炫世界">
+		</a>
+	</section>
+	
+	<!-- 雪糕选择页 默认隐藏，display:none;导致图片不可滑动，因此用opacity=0;-->
+	<section id="iceCreamBox" class="visible">
+		<img src="" alt="雪糕选择" title="雪糕选择背景图" id="iceCreamBg" class="iceCreamBg" />
+		<p class="sign">滑动巧乐兹绮炫选择进入的场景</p>
+		<div style="perspective: 1.66666667rem;text-align: center">
+		    <div class="ice-box" style="transform-style: preserve-3d" draggable="false">
+		        <img src="https://cdn.happysyrup.com/brand/qlz2/img/SD/IceCream-brown.png" data-size="2" data-iceCream_name="巧乐兹绮炫比利时巧克力脆层" data-iceCream_scenes="香草口味冰淇淋">
+		        <img src="https://cdn.happysyrup.com/brand/qlz2/img/SD/IceCream-green.png" data-size="3" data-iceCream_name="巧乐兹绮炫薄荷味巧克力脆层" data-iceCream_scenes="提拉米苏口味冰淇淋">
+		        <img src="https://cdn.happysyrup.com/brand/qlz2/img/SD/IceCream-pink.png" data-size="1" data-iceCream_name="巧乐兹绮炫水蜜桃味巧克力脆层" data-iceCream_scenes="覆盆子酸奶口味冰淇淋">
+		        <img src="https://cdn.happysyrup.com/brand/qlz2/img/SD/IceCream-purple.png" data-size="0" data-iceCream_name="巧乐兹绮炫黑加仑味巧克力脆层" data-iceCream_scenes="开心果口味冰淇淋">
+		    </div>
+		</div>
+		<div class="icreamTitle">  
+			<p class="iceCream_name">巧乐兹绮炫水蜜桃味巧克力脆层</p>
+			<p class="iceCream_scenes">覆盆子酸奶口味冰淇淋</p>
+		</div>
+		<img class="gotoScenes" src="https://cdn.happysyrup.com/brand/qlz2/img/SD/selectValueBtn.png"/>
+	</section>
+	
+	<!-- loading -->
+	<section id="loading" class="hide">
+		<div class="spinner">
+			<div class="spinner-container container1">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		  	<div class="spinner-container container2">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		 	</div>
+		  	<div class="spinner-container container3">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		</div>
+	</section>
+	
+	<!-- 网络中断提示 -->
+	<section id="internetBreak" class="hide">
+		<p class="breakTitleWrap">
+			<img src="https://cdn.happysyrup.com/h5/molly-cell-lab-v1/img/internetBreak.jpg" class="break-title" alt="网络中断">
+		</p>
+	</section>
+	
+	<!-- 背景音乐 -->
+	<section class="music">
+		<!-- 音乐开关 -->
+		<div class="switch">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/btn_sounds_play.png" alt="播放" class="btnsounds palyBgMusic">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/btn_sounds_pause.png" alt="暂停" class="btnsounds pauseBgMusic hide">
+		</div>
+		
+		<audio id="bgMusic" preload="auto" loop class="hide" autoplay="autoplay">
+        	<source src="https://cdn.happysyrup.com/brand/qlz2/sounds/qlz_bgMusic.mp3" type="audio/mp3">
+    	</audio>
+	</section>
+	
+	<!-- 场景 保存按钮和重新开始按钮 class="hide" -->
+	<section id="resultBtn" class="hide">
+		<div class="btns">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/saveResultBtn.png" alt="保存" class="btn save" id="saveResult">
+			<img src="https://cdn.happysyrup.com/brand/qlz2/img/replayBtn.png" alt="重玩" class="btn replay" id="replay">
+		</div>
+	</section>
+	
+	<!-- 结果图 -->
+	<section id="resultImg" class="hide">
+		<p class="saveResultImgPrompt">如需分享请长按保存至相册</p>
+	</section>
+
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	<script src="externalJS/createjs-1.0.0.min.js"></script>
+	<script src="externalJS/jquery-1.8.2.min.js"></script>
+	<script src="externalJS/idangerous.swiper.min.js"></script>
+	<script src="externalJS/touch-0.2.14.min.js"></script>
+	<script src="externalJS/vconsole.min.js"></script>
+<!-- 	<script>
+		var vConsole = new VConsole();
+	</script> -->
+	<script src="mainJS/fps.js"></script>
+	<script src="mainJS/device.js"></script>
+	<script>
+		var mobileType = MobileDevice.getModels(); // 机型
+		var getUa = MobileDevice.getUa(); // 获取设备Ua
+		console.warn('是否IphoneX系列==>' + mobileType, '设备Ua==>' + getUa);
+	</script>
+	<!-- <script src="mainJS/clearCache.js"></script> -->
+	<!-- canvas init 基本适配-->
+	<script src="mainJS/init.js"></script>
+	<script src="mainJS/config.js"></script>
+	<script src="mainJS/scenesData.js"></script>
+	<!-- 解决js缓存问题 -->
+<!--<script>
+		clearCache.type('js','mainJS/main.js');
+  </script>-->
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277815105'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277815105%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

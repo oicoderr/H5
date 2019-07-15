@@ -1,0 +1,14 @@
+[Unit]
+Description=molly-h5-server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+WorkingDirectory=/kt/app/molly-h5/server
+User=kt
+Group=kt
+ExecStart=/kt/lib/jdk/bin/java -jar -Xmx256m -Xms256m -Dspring.profiles.active=@profile@ /kt/app/molly-h5/server/molly-h5-server-@version@.jar --spring.config.location=file:/kt/etc/molly-h5/application.yml
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

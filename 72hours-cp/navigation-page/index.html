@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<meta charset="UTF-8">
+		<title>72小时cp</title>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection"content="telephone=no, email=no" />
+	  <script src="js/flexible_css.debug.js"></script>
+	  <script src="js/flexible.debug.js"></script>
+	  <link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+	</body>
+	<script src="../global-js/jquery-1.8.2.min.js"></script>
+	<script src="js/ripple.js"></script>
+	<script>
+		var nextUrl = '../write-userInfo-page/index.html';
+		var openUrl = '../isWhat/index.html';
+		$(document).ready(function(evt) {
+ 			var body=$(document.body);
+ 			body.append("<div id='bodyBox' class='ripple ripple-radial'><p id='log'></p><p id='title'></p><p id='prompt'></p><p id='clickMe'></p><p id='whatWhy'></p></div>");
+			
+			$('#clickMe').bind("click",function(){
+//				$(location).attr('href', nextUrl);
+				window.location.replace(nextUrl);
+			});
+			
+			$('#whatWhy').bind("click",function(){
+//				$(location).attr('href', openUrl);
+				window.location.replace(openUrl);
+			});
+		});
+		
+	</script>
+</html>

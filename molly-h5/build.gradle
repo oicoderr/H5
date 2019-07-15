@@ -1,0 +1,176 @@
+plugins {
+    id 'nebula.ospackage' version '5.1.0'
+}
+
+apply plugin: 'base'
+apply plugin: 'idea'
+apply plugin: 'nebula.ospackage'
+
+def VERSION = '1.0.0'
+
+subprojects {
+    group = 'mollyh5'
+    version = VERSION
+}
+
+idea.project {
+    jdkName = '1.8'
+    languageLevel = '1.8'
+}
+
+wrapper {
+    gradleVersion = '4.10.2'
+}
+
+//------------------------------------------------------------------------------
+// 打包发布
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+def USER = 'kt'
+
+task testRpm(type: Rpm, dependsOn: ['clean', ':molly-h5-server:bootJar']) {
+    packageName "${project.name}-test"
+    version VERSION
+    release '1'
+    arch 'x86_64'
+    os 'linux'
+    packageGroup 'Service'
+    user 'kt'
+    permissionGroup 'kt'
+    vendor 'SYRUP'
+    url 'http://www.happysyrup.com'
+    requires('kt-env')
+    requires('nginx')
+    conflicts("${project.name}")
+
+    postInstall file("rpm/post-install.sh")
+
+    from('rpm/nginx') {
+        include 'molly-h5-test.conf'
+        user 'root'
+        permissionGroup 'root'
+        fileMode 0644
+        rename { String fileName ->
+            fileName.replace('molly-h5-test.conf', 'molly-h5-test.happysyrup.com.conf')
+        }
+        into '/etc/nginx/conf.d'
+    }
+
+    from('rpm/logrotate') {
+        include '*'
+        user 'root'
+        permissionGroup 'root'
+        fileMode 0644
+        into '/etc/logrotate.d'
+    }
+
+    from("rpm/systemd") {
+        include '*.service'
+        user 'root'
+        permissionGroup 'root'
+        fileMode 0644
+        filter(ReplaceTokens, tokens: [profile: "test", version: VERSION])
+        into '/usr/lib/systemd/system'
+    }
+
+    from('molly-cell-lab-web') {
+        user 'kt'
+        permissionGroup 'kt'
+        fileMode 0755
+        into "/kt/app/${project.name}/web/molly-cell-lab"
+    }
+
+    from('molly-h5-server/build/libs') {
+        include '*.jar'
+        fileMode 0500
+        into "/kt/app/${project.name}/server"
+    }
+
+    from('molly-h5-server/config') {
+        include 'application-test.yml'
+        fileMode 0500
+        rename { String fileName ->
+            fileName.replace('application-test.yml', 'application.yml')
+        }
+        into "/kt/etc/${project.name}"
+    }
+
+    directory("/kt/dat/${project.name}", 0755, USER, USER)
+    directory("/kt/dat/${project.name}/icon", 0755, USER, USER)
+    directory("/kt/log/${project.name}", 0755, USER, USER)
+    directory("/kt/log/${project.name}/nginx", 0755, 'nginx', 'adm')
+}
+
+task prodRpm(type: Rpm, dependsOn: ['clean', ':molly-h5-server:bootJar']) {
+    packageName "${project.name}"
+    version VERSION
+    release '1'
+    arch 'x86_64'
+    os 'linux'
+    packageGroup 'Service'
+    user 'kt'
+    permissionGroup 'kt'
+    vendor 'SYRUP'
+    url 'http://www.happysyrup.com'
+    requires('kt-env')
+    requires('nginx')
+    conflicts("${project.name}-test")
+
+    postInstall file("rpm/post-install.sh")
+
+    from('rpm/nginx') {
+        include 'molly-h5-prod.conf'
+        user 'root'
+        permissionGroup 'root'
+        fileMode 0644
+        rename { String fileName ->
+            fileName.replace('molly-h5-prod.conf', 'molly-h5.happysyrup.com.conf')
+        }
+        into '/etc/nginx/conf.d'
+    }
+
+    from('rpm/logrotate') {
+        include '*'
+        user 'root'
+        permissionGroup 'root'
+        fileMode 0644
+        into '/etc/logrotate.d'
+    }
+
+    from("rpm/systemd") {
+        include '*.service'
+        user 'root'
+        permissionGroup 'root'
+        fileMode 0644
+        filter(ReplaceTokens, tokens: [profile: "prod", version: VERSION])
+        into '/usr/lib/systemd/system'
+    }
+
+    from('molly-cell-lab-web') {
+        user 'kt'
+        permissionGroup 'kt'
+        fileMode 0755
+        into "/kt/app/${project.name}/web/molly-cell-lab"
+    }
+
+    from('molly-h5-server/build/libs') {
+        include '*.jar'
+        fileMode 0500
+        into "/kt/app/${project.name}/server"
+    }
+
+    from('molly-h5-server/config') {
+        include 'application-prod.yml'
+        fileMode 0500
+        rename { String fileName ->
+            fileName.replace('application-prod.yml', 'application.yml')
+        }
+        into "/kt/etc/${project.name}"
+    }
+
+    directory("/kt/dat/${project.name}", 0755, USER, USER)
+    directory("/kt/dat/${project.name}/icon", 0755, USER, USER)
+    directory("/kt/log/${project.name}", 0755, USER, USER)
+    directory("/kt/log/${project.name}/nginx", 0755, 'nginx', 'adm')
+}

@@ -1,0 +1,21 @@
+# test
+
+spring:
+  application:
+    name: molly-h5
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/molly_h5_dev?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: syrup
+    password: syrup
+
+    initialization-mode: always
+
+server:
+  address: 127.0.0.1
+  port: 5305
+
+logging:
+  file: /kt/log/molly-h5/molly-h5-server.log
+  level:
+    org.springframework.jdbc.core: INFO

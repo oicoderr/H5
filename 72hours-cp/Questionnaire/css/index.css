@@ -1,0 +1,184 @@
+blockquote,body,em,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul,html
+{
+    margin:0;padding:0;
+}
+i,cite,em,var,address{
+  font-style:normal
+}
+i{
+  display: inline-block;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+  font-style:normal;
+  font-family: -apple-system,Helvetica,sans-serif;
+}
+body{
+  width: 100%;
+  height: 100%;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  padding{
+    constant(safe-area-inset-top); /* 兼容 iOS < 11.2 */
+    constant(safe-area-inset-right); 
+    constant(safe-area-inset-bottom); 
+    constant(safe-area-inset-left);
+    env(safe-area-inset-top); /* 兼容 iOS >= 11.2 */
+    env(safe-area-inset-right); 
+    env(safe-area-inset-bottom); 
+    env(safe-area-inset-left);
+  }
+}
+p{
+	-webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+.hide{
+	display: none;
+}
+section{
+	width: 100%;
+	height: 100%;
+}
+#titleInfo{
+	background: url(../img/titleInfo.png) no-repeat;
+	width: 4.5rem;
+	height: 1.12rem;
+	background-size: 4.5rem 1.12rem;
+	position: absolute;
+	bottom: 10.6rem;
+	left: 1.5rem;
+}
+#pages{
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 0.3rem;
+	border: 0.01rem solid rgba(0,0,0,1);
+	text-align: center;
+	line-height: 0.6rem;
+	position: absolute;
+	left: 3.46rem;
+	bottom: 9.4rem;
+	font-weight: lighter;
+}
+.questionA{
+	width: 5.4rem;
+	height: 3.04rem;
+	border: 0.01rem solid rgba(0,0,0,1);
+	position: absolute;
+	left: 1.06rem;
+	bottom: 5.96rem;
+	box-sizing:border-box;
+}
+.questionB{
+	width: 5.4rem;
+	height: 3.04rem;
+	border: 0.01rem solid rgba(0,0,0,1);
+	position: absolute;
+	left: 1.06rem;
+	bottom: 2.74rem;
+	box-sizing:border-box;
+}
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: .2; /*初始状态 透明度为0.2*/
+		transform: scale3d(.3,.3,.3);
+	}
+	30% {
+		opacity: .3;
+	}
+	50% {
+		opacity: .5; 
+	}
+	80% {
+		opacity: .8; 
+	}
+	100% {
+		opacity: 1; /*结束状态 透明度为1*/
+	}
+}
+
+#clickMe{
+	background: url(../img/userInfo_clickBtn.png) no-repeat;
+	background-size: 1.2rem 1.2rem;
+	width: 1.2rem;
+	height: 1.2rem;
+	position: absolute;
+	bottom: .68rem;
+	left: 3.16rem;
+	animation-name: fadeIn; /*动画名称*/
+	animation-duration: 2.6s; /*动画持续时间*/
+	animation-iteration-count: infinite; /*动画次数*/
+	animation-delay: 0s; /*延迟时间*/
+	animation-direction:alternate; /*反向播放*/
+	animation-fill-mode: both
+}
+
+#caveatWrap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.4);
+}
+#caveatBox{
+	background: rgba(0,0,0,1);
+	width: 5rem;
+	height: 2.02rem;
+	position: absolute;
+	bottom: 5.34rem;
+	left: 1.26rem;
+	color: rgba(255,255,255,1);
+	font-size: 0.22rem;
+	text-align: center;
+	line-height: 2.02rem;
+}
+
+.title{
+	font-size: 0.28rem;
+	color: rgba(0,0,0,1);
+	position: absolute;
+	left: 0.42rem;
+	bottom: 2.38rem;
+}
+.answerOne{
+	position: absolute;
+	left: 0.42rem;
+	bottom: 1.66rem;
+	width: 0.2rem;
+	height: 0.2rem;
+	border-radius: 0.1rem;
+}
+.answerTwo{
+	position: absolute;
+	left: 0.42rem;
+	bottom: 1.02rem;
+	width: 0.2rem;
+	height: 0.2rem;
+	border-radius: 0.1rem;
+}
+.answerThree{
+	position: absolute;
+	left: 0.42rem;
+	bottom: 0.32rem;
+	width: 0.2rem;
+	height: 0.2rem;
+	border-radius: 0.1rem;
+}
+.labelOne{
+	position: absolute;
+	left: 0.82rem;
+	bottom: 1.6rem;
+}
+.labelTwo{
+	position: absolute;
+	left: 0.82rem;
+	bottom: 0.96rem;/*1.02*/
+}
+.labelThree{
+	position: absolute;
+	left: 0.82rem;
+	bottom: 0.25rem;
+}

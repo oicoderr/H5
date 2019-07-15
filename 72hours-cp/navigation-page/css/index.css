@@ -1,0 +1,117 @@
+blockquote,body,em,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul,html
+{
+    margin:0;padding:0;
+}
+i,cite,em,var,address{
+  font-style:normal
+}
+i{
+  display: inline-block;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+  font-style:normal;
+  font-family: -apple-system,Helvetica,sans-serif;
+}
+body{
+  /*background: url(../img/bg.png) no-repeat;*/
+  width: 100%;
+  height: 100%;
+  /*background-size: 10rem 21.7rem;*/
+  overflow-x:hidden;
+  overflow-y:hidden;
+  padding{
+    constant(safe-area-inset-top); /* 兼容 iOS < 11.2 */
+    constant(safe-area-inset-right); 
+    constant(safe-area-inset-bottom); 
+    constant(safe-area-inset-left);
+    env(safe-area-inset-top); /* 兼容 iOS >= 11.2 */
+    env(safe-area-inset-right); 
+    env(safe-area-inset-bottom); 
+    env(safe-area-inset-left);
+  }
+}
+p{
+	-webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+#bodyBox{
+	width: 100%;
+	height: 100%;
+}
+#log{
+	background: url(../img/logo.png) no-repeat;
+	background-size: 2.693333rem 3.173333rem;
+	width: 2.693333rem;
+	height: 3.173333rem;
+	position: absolute;
+	top: 0;
+	left: 3.653333rem;
+}
+#title{
+	background: url(../img/title.png) no-repeat;
+	background-size: 7.786666rem 1.253333rem;
+	width: 7.786666rem;
+	height: 1.253333rem;
+	position: absolute;
+	bottom: 9.466666rem;
+	left: 1.106666rem;
+}
+#prompt{
+	background: url(../img/prompt.png) no-repeat;
+	background-size: 2.56rem 0.8rem;
+	width: 2.56rem;
+	height: 0.8rem;
+	position: absolute;
+	bottom: 3.52rem;
+	left: 3.72rem;
+}
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0; /*初始状态 透明度为0*/
+		transform: scale3d(.3,.3,.3);
+	}
+	30% {
+		opacity: .3;
+	}
+	50% {
+		opacity: .5; 
+	}
+	80% {
+		opacity: .8; 
+	}
+	100% {
+		opacity: 1; /*结束状态 透明度为1*/
+	}
+}
+
+#clickMe{
+	background: url(../img/clickBtn.png) no-repeat;
+	background-size: 1.6rem 1.6rem;
+	width: 1.6rem;
+	height: 1.6rem;
+	position: absolute;
+	bottom: 1.386666rem;
+	left: 4.2rem;
+	animation-name: fadeIn; /*动画名称*/
+	animation-duration: 2.6s; /*动画持续时间*/
+	animation-iteration-count: infinite; /*动画次数*/
+	animation-delay: 0s; /*延迟时间*/
+	animation-direction:alternate; /*反向播放*/
+	animation-fill-mode: both
+}
+#whatWhy{
+	display: block;
+	background-image: url(../img/textUrl.png);
+	background-repeat: no-repeat;
+	background-size: 3.12rem 0.293333rem;
+	width: 3.12rem;
+	height: 0.293333rem;
+	position: absolute;
+	bottom: 0.56rem;
+	left: 3.44rem;
+}

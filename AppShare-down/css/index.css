@@ -1,0 +1,63 @@
+body{
+	background-color: rgba(255, 214, 91, 1);
+}
+.content{
+	width: 100%;
+	height: 100.48rem;
+	background: url(../img/bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.banner{
+	width: 100%;
+	text-align: center;
+	padding-top: 2rem;
+}
+.banner img{
+	width: 10.48rem;
+	height: 8.16rem;
+	display: inline-block;
+}
+.btn{
+	padding-top: .6rem;
+}
+.btn .ios, .android{
+	width: 9.6rem;
+	height: 2.4rem;
+	display: block;
+	margin: 0 auto;
+}
+.btn .android{
+	margin-top: 0.8rem;
+}
+.logoBox{
+	text-align: center;
+}
+.logo{
+	width: 3.12rem;
+	height: 3.12rem;
+	display: inline-block;
+}
+.text{
+	width: 100%;
+	height: auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.text .text1{
+	width: 7.6rem;
+	height: 20.76rem;
+	margin: 0 auto;
+	margin-top: 4.04rem;
+}
+.text .text2{
+	width: 8.32rem;
+	height: 20.76rem;
+	margin: 0 auto;
+	margin-top: 5.5rem;
+}
+.text .text3{
+	width: 8.28rem;
+	height: 20.76rem;
+	margin: 0 auto;
+	margin-top: 4.72rem;
+}

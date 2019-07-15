@@ -1,0 +1,171 @@
+#content{
+	width: 100%;
+	height: auto;
+	overflow:scroll;
+	-webkit-overflow-scrolling: touch; 
+	position:absolute; 
+	top:0; 
+	left:0; 
+	bottom:0; 
+	right:0;
+}
+.hide{
+	display: none;
+}
+.index-title{
+	width: 5.2rem;
+	height: 2.94rem;
+	position: absolute;
+	top: .88rem;
+	left: .52rem;
+	z-index: 1;
+}
+.index-bg{
+	width: 100%;
+	height: 16rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+.startGame{
+	width: 100%;
+	height: 1.54rem;
+	position: absolute;
+	bottom: 1.6rem;
+	display: table-cell;
+    text-align: center;
+}
+.startGame img{
+	width: 2.54rem;
+	height: 100%;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+#index-bgm{
+	position: fixed;
+	display: none;
+}
+.text-left{
+	width: .3rem;
+	height: 6.38rem;
+	position: absolute;
+	top: 4.08rem;
+	left: .52rem;
+	z-index: 2;
+}
+.text-right{
+	width: .3rem;
+	height: 6.38rem;
+	position: absolute;
+	top: 1.66rem;
+	right: .4rem;
+	z-index: 2;
+}
+
+.animate-circle{
+	width: 3.4rem;
+	height: 3.4rem;
+	position: absolute;
+	top: 4.88rem;
+	left: 2.09rem;
+	z-index: 2;
+	opacity: .5;
+}
+.title{
+	font-size: .24rm;
+	color: rgba(255,255,255,1);
+	width: 100%;
+	height: .24rem;
+	line-height: .24rem;
+	text-align: center;
+	letter-spacing: .03rem;
+	position: absolute;
+	bottom: .85rem;
+	left: 0;
+}
+
+/* loading */
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 30px;
+	background-color: rgba(0,0,0,1);
+	z-index: 99;
+}
+.xl-progress-wp{
+	position: absolute;
+	width: 4.0rem;
+	height: 1rem;
+	top: 50%;
+	left: 50%;
+	margin: -0.5rem 0 0 -2rem;
+}
+.xl-progress {
+	position: relative;
+	width: 100%;
+	height: 0.16rem;
+	border-radius: 0.2rem;
+	background-color: #eeeeed;
+	overflow: hidden;
+}
+.xl-progress__inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	border-radius: 0.2rem;
+	background-color: #f3d08c;
+}
+.xl-progress__txt {
+	color: rgba(255,255,255,1);
+	margin-top: 0.2rem;
+	text-align: center;
+	font-size: .4rem;
+}
+/* 音乐开关按钮 */
+.onOff{
+	position: absolute;
+	width: .6rem;
+	height: .6rem;
+	top: 4rem;
+	left: 1.1rem;
+	z-index: 1;
+}
+.onOff .pos{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+/* 网络中断提示 */
+#internetBreak{
+	width: 100%;
+	height: 20rem;
+	background-color: rgba(0,0,0,1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+}
+.breakTitleWrap{
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	position: absolute;
+	top: 4rem;
+	left: 0;
+}
+.break-title{
+	width: 3rem;
+	height: 2rem;
+	display: inline-block;
+	text-align: center;
+}

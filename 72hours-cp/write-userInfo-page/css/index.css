@@ -1,0 +1,153 @@
+blockquote,body,em,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul,html
+{
+    margin:0;padding:0;
+}
+i,cite,em,var,address{
+  font-style:normal
+}
+i{
+  display: inline-block;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+  font-style:normal;
+  font-family: -apple-system,Helvetica,sans-serif;
+}
+body{
+  /*background: url(../img/bg.png) no-repeat;*/
+  width: 100%;
+  height: 100%;
+  /*background-size: 10rem 21.7rem;*/
+  overflow-x:hidden;
+  overflow-y:hidden;
+  padding{
+    constant(safe-area-inset-top); /* 兼容 iOS < 11.2 */
+    constant(safe-area-inset-right); 
+    constant(safe-area-inset-bottom); 
+    constant(safe-area-inset-left);
+    env(safe-area-inset-top); /* 兼容 iOS >= 11.2 */
+    env(safe-area-inset-right); 
+    env(safe-area-inset-bottom); 
+    env(safe-area-inset-left);
+  }
+}
+p{
+	-webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+.hide{
+	display: none;
+}
+#bodyBox{
+	width: 100%;
+	height: 100%;
+}
+#caveatWrap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.4);
+}
+#caveatBox{
+	background: rgba(0,0,0,1);
+	width: 5rem;
+	height: 2.02rem;
+	position: absolute;
+	bottom: 5.34rem;
+	left: 1.26rem;
+	color: rgba(255,255,255,1);
+	font-size: 0.22rem;
+	text-align: center;
+	line-height: 2.02rem;
+}
+#title{
+	background: url(../img/userInfo_title.png) no-repeat;
+	background-size: 4.42rem 0.62rem;
+	width:  4.42rem;
+	height: 0.62rem;
+	position: absolute;
+	bottom: 11.1rem;/*1rem;*/
+	left: 1.56rem;
+}
+#titleInfo{
+	background: url(../img/userInfo_title_info.png) no-repeat;
+	background-size: 1.36rem 0.32rem;
+	width: 1.01rem;
+	height:.38rem;
+	position: absolute;
+	bottom: 10.28rem;
+	left: 3.24rem;
+}
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: .2; /*初始状态 透明度为.2*/
+		transform: scale3d(.3,.3,.3);
+	}
+	30% {
+		opacity: .3;
+	}
+	50% {
+		opacity: .5; 
+	}
+	80% {
+		opacity: .8; 
+	}
+	100% {
+		opacity: 1; /*结束状态 透明度为1*/
+	}
+}
+
+#clickMe{
+	background: url(../img/userInfo_clickBtn.png) no-repeat;
+	background-size: 1.2rem 1.2rem;
+	width: 1.2rem;
+	height: 1.2rem;
+	position: absolute;
+	bottom: .68rem;
+	left: 3.16rem;
+	animation-name: fadeIn; /*动画名称*/
+	animation-duration: 2.6s; /*动画持续时间*/
+	animation-iteration-count: infinite; /*动画次数*/
+	animation-delay: 0s; /*延迟时间*/
+	animation-direction:alternate; /*反向播放*/
+	animation-fill-mode: both
+}
+#userMessage{
+	width: 4.4rem;
+	height: auto;
+	position: absolute;
+	/*top: 3.76rem;*/
+	bottom: 2.24rem;
+	left: 1.56rem;
+}
+input{
+	border:none; 
+	outline:none;
+}
+#userMessage .titleHead{
+	height: 0.6rem;
+	line-height:  0.6rem;
+	text-align: center;
+	margin-left: 0.22rem;
+}
+#userMessage .wirteInfo{
+	width: 2.2rem;
+	float: right;
+	margin-right:0.22rem;
+	text-align: right;
+	margin-top: 0.18rem;
+	font-size: 0.22rem;
+}
+#userMessage ul li{
+	height: 0.6rem;
+	border: 0.013333rem solid black;
+	box-sizing:border-box;
+	margin-top: 0.266666rem;
+	font-size: 0.24rem;
+}
+#userMessage ul li:nth-child(1){
+	margin-top: 0;
+}
