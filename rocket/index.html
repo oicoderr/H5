@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>与南小粤一起登月赢大奖</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link href="./css/reset-mobile.css" rel="stylesheet" type="text/css" />
+	<link href="./css/index.css?key=1" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<section class="wrapper">
+		<!-- S 倒计时/积分 -->
+		<div id="integral_clock">
+			<div class="integral showIntegralClock">0</div>
+			<div class="clock showIntegralClock">30</div>
+		</div>
+		<!-- E 倒计时/积分 -->
+
+		<canvas id="gameView" width="750" height="2688" class="rocket_gameView">
+			您的浏览器版本过低，请更换更高版本的浏览器
+		</canvas>
+
+		<!-- S 入场页 -->
+		<div id="rocker_indexPage">
+			<!-- <img src="./images/logo.png" class="logo" /> -->
+			<a class="start_game"></a>
+		</div>
+		<!-- E 入场页 -->
+
+		<!-- S 操作提示-->
+		<div class="hide" id="operation_promptWarp">
+			<ul class="operation_prompt">
+				<li class="prompt"><img src="./images/operation_prompt.png?key=img8djsae9" alt="操作提示" /></li>
+				<li class="imOk"><img src="./images/imOk.png" alt="imOk" /></li>
+			</ul>
+		</div>
+		<!-- E 操作提示-->
+
+		<!-- S 游戏结束 -->
+		<div class="rocket_alert hide" id="J_rocket_lose">
+			<div class="rocket_alert_wrap">
+				<div class="rocket_alert_content">
+					<div class="resultTitle_0"></div>
+					<div class="resultScore">
+						<p class="score"></p>
+						<p class="scale">超过全国<i></i>的用户</p>
+						<p class="title"></p>
+					</div>
+				</div>
+				<div class="scrollWrap">
+					<div class="scroll">
+						<ul class="list">
+						</ul>
+						<!-- <div class="refresh-bg">下拉刷新</div> -->
+					</div>
+
+				</div>
+				<!-- <p class="titleInfo">六到二十名请关注公众号查看中奖结果</p> -->
+				<div class="rocket_alert_close"></div>
+			</div>
+		</div>
+		<!-- E 游戏结束 -->
+
+		<!-- S 靠左/靠右/剧中 按钮 -->
+		<div class="rocket_btns" id="rocket_btns">
+			<div class="leftBtn btns"></div>
+			<div class="rightBtn btns"></div>
+		</div>
+		<!-- E 靠左/靠右/剧中 按钮 -->
+
+		<!-- S 分享页面 -->
+		<div id="shareWrap" class="hide">
+			<img src="./images/shareBg.png" class="shareBg" />
+			<div class="noticeWarp">
+				<img src="./images/noticeBtn.png" class="noticeBtn" />
+			</div>
+			<p class="theme"></p>
+			<div class="lore">
+				<a class="title">「登月小知识」</a>
+				<a class="text"></a>
+			</div>
+			<!-- <p class="theme">与南小粤一起</br>登月赢大奖</p> -->
+			<img src="./images/qr-code.png?key=img0d9as" class="qrCode" />
+			<div class="btns">
+				<img src="./images/shareBtn.png" class="share" />
+				<img src="./images/againBtn.png" class="again" />
+			</div>
+		</div>
+		<!-- E 分享页面 -->
+
+		<!-- E 游戏规则 -->
+		<div id="noticeContent" class="hide">
+			<img src="./images/notice.png" class="notice" />
+			<p class="iKnow"></p>
+		</div>
+		<!-- S 游戏规则 -->
+
+		<!-- S 分享生成页 -->
+		<div id="resultSahrePage" class="hide">
+			<p class="info">长按保存图片</p>
+		</div>
+		<!-- E 分享生成页 -->
+
+		<!-- 背景音乐 -->
+		<div id="music">
+			<!-- 音乐开关 -->
+			<div class="switch">
+				<img src="./images/btn_sounds_play.png" alt="播放" class="btnsounds palyBgMusic">
+				<img src="./images/btn_sounds_pause.png" alt="暂停" class="btnsounds pauseBgMusic hide">
+			</div>
+
+			<audio id="bgMusic" preload="auto" autoplay="autoplay" loop class="hide">
+				<source src="./sound/nybankRocket_bgm.mp3" type="audio/mp3">
+			</audio>
+		</div>
+
+		<!-- 网络中断提示 -->
+		<div id="internetBreak" class="hide">
+			<p class="breakTitleWrap">
+				<img src="./images/internetBreak.jpg" class="break-title" alt="网络中断">
+			</p>
+		</div>
+
+		<!-- S loading -->
+		<div id="loading" class="hide">
+			<div class="spinner">
+				<div class="spinner-container container1">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="spinner-container container2">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="spinner-container container3">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+			</div>
+		</div>
+		<!-- E loading -->
+
+	</section>
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_1278014495'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1278014495' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script src="./js/jweixin-1.4.0.js" crossorigin="anonymous"></script>
+	<script src="./js/iscroll-probe.min.js" crossorigin="anonymous"></script>
+	<script src="./js/flexible2.js" crossorigin="anonymous"></script>
+	<script src="./js/jquery-1.8.2.min.js" crossorigin="anonymous"></script>
+	<script src="./js/createjs-1.0.0.min.js" crossorigin="anonymous"></script>
+	<script src="./js/html2canvas.min.js" crossorigin="anonymous"></script>
+	<script src="./js/device.js" crossorigin="anonymous"></script>
+	<script src="./js/data.js" crossorigin="anonymous"></script>
+	<script src="./js/config.js?key=9dksa7whd" crossorigin="anonymous"></script>
+	<script src="./js/index.js?key=5" crossorigin="anonymous"></script>
+
+	<script>
+		'use strict';
+		function init() {
+			if (getWarrant.code == null) {
+				getWarrant.getCode();
+			}
+			// 游戏页初始化
+			if ($('#rocker_indexPage')) {
+				// 随机选一个
+				// 开始游戏唯一rocket
+				$('#rocker_indexPage .start_game').on('click', () => { // J_rocket_role_Rchose
+					_czc.push(["_trackEvent", "活动", "点击", "开始游戏", 1, "NYBANK-MID"]);
+					if (!$('#rocker_indexPage').hasClass("hide")) $('#rocker_indexPage').addClass('hide');
+					choseRole();
+				});
+			}
+		}
+		init();
+
+		function choseRole() {
+			//静态资源
+			var manifest = [
+				{ src: './images/prop_add.png', id: 'prop_add' },
+				{ src: './images/prop_reduce.png', id: 'prop_reduce' },
+				{ src: './images/rocket.png', id: 'rocket' }, // 超级火箭
+				{ src: './images/jet.png', id: 'jet' }, // 喷气火焰
+				{ src: './images/rocket_bg_1@2x_1.jpg', id: 'bg' },
+				{ src: './images/addBitmap.png', id: 'addScore' },
+				{ src: './images/removeBitmap.png', id: 'reduceScore' },
+				{ src: './images/rocket_bg_1@2x_2.jpg', id: 'bgLong' },
+				{ src: './images/explosion.png', id: 'explosion' },
+			];
+
+			// 总的倒计时时间，  allTime  30
+			// 道具作用的里程数  propMill 6500
+			// 默认积分 		score 	 0
+			var game = new RocketGame(30, 6500, 0);
+			game.init(manifest);
+			// game.noTouchMove();// 禁止页面滑动
+			// 时间结束
+			game.event.on('timeout', function () {
+				game.destroy();
+				console.log(game);
+			});
+
+			// 分享截图图
+			$('#shareWrap .share').on('click', (e) => {
+				$('#shareWrap .btns').addClass('hide');
+				$('#resultSahrePage').removeClass('hide');
+				$('.noticeWarp').addClass('hide');
+				_czc.push(["_trackEvent", "活动", "点击", "保存海报", 1, "NYBANK-MID"]);
+				game.noTouchMove();// 禁止页面滑动
+				downloadFroImg();
+			})
+
+			// 游戏规则
+			$('.noticeBtn').on('click', function () {
+				$('#noticeContent').removeClass('hide');
+			})
+			$('.iKnow').on('click', function () {
+				$('#noticeContent').addClass('hide');
+			})
+
+			//使用html2canvas 转换html为canvas
+			function downloadFroImg() {
+				html2canvas(document.getElementById('shareWrap')).then(function (canvas) {
+					var imgUri = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); // 获取生成的图片的url 　
+					let img = new Image();
+					img.src = imgUri;
+					img.classList.add('shareImg');
+					$('#resultSahrePage').append(img);
+
+					$('#resultSahrePage').on('click', function () {
+						$('#resultSahrePage').addClass('hide');
+						$('.noticeWarp').removeClass('hide');
+						$("img").remove(".shareImg");
+						$('#shareWrap .btns').removeClass('hide');
+					})
+				});
+			}
+
+			// 重玩
+			$('#shareWrap .again').on('click', (e) => { // 重玩
+				// $('#shareWrap').addClass('hide');
+				// $('#operation_promptWarp').addClass('hide');
+				// $('#integral_clock').removeClass('hide');
+				var game = new RocketGame(30, 6500, 0);
+				game.reStart(manifest);
+			})
+			// 销毁自定义事件
+			// game.event.removeEvent();
+		}
+
+	</script>
+</body>
+
+</html>
